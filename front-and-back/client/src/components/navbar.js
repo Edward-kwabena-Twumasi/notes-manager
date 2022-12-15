@@ -12,7 +12,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
-          <h2>Todo Manager</h2>
+          <h2>Notes Master</h2>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -26,11 +26,11 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse ml-7" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <NavLink className="nav-link" to="/create">
-                Add todo
+                New Note
               </NavLink>
             </li>
           </ul>
