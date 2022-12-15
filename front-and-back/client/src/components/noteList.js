@@ -8,8 +8,8 @@ const Note = (props) => (
     <h1 className="note-title mb-3">{props.note.title}</h1>
     <p className="note-body">{props.note.content}</p>
     <div className="row timestamps">
-      <h5>{props.note.created}</h5>
-      <h5>{props.note.updated}</h5>
+      <h5>C : {props.note.created}</h5>
+      <h5>U : {props.note.updated}</h5>
     </div>
     <div className="row w-1oo actions">
       <Link className="btn btn-link" to={`/edit/${props.note._id}`}>Edit</Link> .
