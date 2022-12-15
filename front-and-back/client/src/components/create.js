@@ -22,7 +22,7 @@ export default function Create() {
 
       const allnotes = await response.json();
       setNoteTitles(allnotes.map(note=>note.title.toLowerCase()));
-      console.log(noteTitles)
+      
     }
 
     getNotes();
