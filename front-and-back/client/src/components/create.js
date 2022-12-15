@@ -47,6 +47,10 @@ export default function Create() {
       window.alert(`There is already a note with the title "${form.title}"`)
       return
     }
+    if (form.title==="" || form.content==="") {
+      window.alert(`Form fields cannot be empty`)
+      return
+    }
 
     await fetch("http://localhost:5000/note/add", {
       method: "POST",

@@ -45,6 +45,9 @@ export default function Edit() {
 
   // These methods will update the state properties.
   async function onFieldChange(value) {
+    if (form.title==="" || form.content==="") {
+      return
+    }
      setStatus("Saving changes")
      setForm((prev) => {
       return { ...prev, ...value };
@@ -77,6 +80,10 @@ export default function Edit() {
 
   async function onSubmit(e) {
     e.preventDefault();
+    if (form.title==="" || form.content==="") {
+      window.alert(`Form fields cannot be empty`)
+      return
+    }
     const editedNote = {
       title: form.title,
       content:form.content,
