@@ -39,9 +39,13 @@ noteRoutes.route("/note/:id").get(function (req, res) {
 // This section will help you create a new note.
 noteRoutes.route("/note/add").post(function (req, response) {
   let db_connect = dbo.getDb();
+  const date=new Date();
+  console.log(date)
   let myobj = {
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    created:date.toUTCString(),
+    updated:date.toUTCString()
   };
   db_connect.collection("notes").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -53,10 +57,13 @@ noteRoutes.route("/note/add").post(function (req, response) {
 noteRoutes.route("/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId( req.params.id )};
+  const date=new Date();
   let newvalues = {
     $set: {
       title: req.body.title,
-      content: req.body.content
+      content: req.body.content,
+      created:req.body.created,
+      updated:date.toUTCString()
     },
   };
   db_connect

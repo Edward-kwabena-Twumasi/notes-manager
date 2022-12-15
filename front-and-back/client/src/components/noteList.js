@@ -5,6 +5,8 @@ const Note = (props) => (
   <tr>
     <td>{props.note.title}</td>
     <td>{props.note.content}</td>
+    <td>{props.note.created}</td>
+    <td>{props.note.updated}</td>
     <td>
       <Link className="btn btn-link" to={`/edit/${props.note._id}`}>Edit</Link> |
       <Link className="btn btn-link" to={`/view/${props.note._id}`}>View</Link> |
@@ -75,13 +77,15 @@ export default function NoteList() {
     <div>
       <h3>All todos</h3>
       <div>
-       <input ref={searchBox} className={'search w-100'} onChange={filterNotes} placeholder="Search Todo"></input> 
+      <input ref={searchBox} className={'search w-100'} onChange={filterNotes} placeholder="Search Todo"></input> 
       </div>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
           <tr>
             <th>Title</th>
             <th>Content</th>
+            <th>Created</th>
+            <th>Updated</th>
             <th>Action</th>
           </tr>
         </thead>

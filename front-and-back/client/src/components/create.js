@@ -4,9 +4,7 @@ import { useNavigate } from "react-router";
 export default function Create() {
   const [form, setForm] = useState({
     title: "",
-    content: "",
-    created:new Date(),
-    updated:new Date(),
+    content: ""
   });
   const navigate = useNavigate();
 
@@ -70,7 +68,7 @@ export default function Create() {
         <div className="form-group">
           <input
             type="submit"
-            value="Create person"
+            value="Add note"
             className="btn btn-primary"
           />
         </div>

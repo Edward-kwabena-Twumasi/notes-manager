@@ -4,7 +4,9 @@ import { useParams, useNavigate } from "react-router";
 export default function View() {
   const [note, setNote] = useState({
     title: "",
-    content: ""
+    content: "",
+    created:"",
+    updated:""
   });
   const params = useParams();
   const navigate = useNavigate();
@@ -42,6 +44,11 @@ export default function View() {
     <div className="view-note p-15">
       <h3 className="note-title m-3">{note.title}</h3>
       <p className="note-content m-3">{note.content}</p>
+      <div className="row m-3">
+        <h5>Created on : {note.created}  </h5>
+        <h5 className="ml-4"> Last update on : {note.updated} </h5>
+
+      </div>
   
     </div>
   );

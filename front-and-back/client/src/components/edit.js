@@ -4,7 +4,9 @@ import { useParams, useNavigate } from "react-router";
 export default function Edit() {
   const [form, setForm] = useState({
     title: "",
-    content: ""
+    content: "",
+    created:"",
+    updated:""
   });
   const [status,setStatus]=useState("")
   const params = useParams();
@@ -47,7 +49,9 @@ export default function Edit() {
     });
     const editedNote = {
       title: form.title,
-      content: form.content
+      content:form.content,
+      created:form.created,
+      updated:form.updated
       
     };
 
@@ -73,7 +77,9 @@ export default function Edit() {
     e.preventDefault();
     const editedNote = {
       title: form.title,
-      content: form.content
+      content:form.content,
+      created:form.created,
+      updated:form.updated
       
     };
 
