@@ -4,7 +4,9 @@ import { useNavigate } from "react-router";
 export default function Create() {
   const [form, setForm] = useState({
     title: "",
-    content: ""
+    content: "",
+    created:new Date(),
+    updated:new Date(),
   });
   const navigate = useNavigate();
 
