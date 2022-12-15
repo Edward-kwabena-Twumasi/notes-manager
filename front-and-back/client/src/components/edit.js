@@ -125,12 +125,15 @@ export default function Edit() {
             onKeyUp={(e)=>onDoneTyping({ content: e.target.value })}/>
         </div>
         <br />
-        <div className="form-group">
+        <div className="form-group row">
           <input
             type="submit"
             value="Update note"
             className="btn btn-primary"
           />
+          <button className="btn ml-3" onClick={(e)=>{
+            e.preventDefault();
+            navigate(-1)}}>Cancel</button>
         </div>
       </form>
       <h5 className="m-2 text-danger">{status}</h5>

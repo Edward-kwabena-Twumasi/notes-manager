@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 
 const Note = (props) => (
   <tr>
@@ -24,6 +24,7 @@ const Note = (props) => (
 export default function NoteList() {
   const searchBox=useRef();
   const [notes, setNotes] = useState([]);
+  const [query, setQuery] = useState("");
 
   // This method fetches the records from the database.
   useEffect(() => {
@@ -37,13 +38,13 @@ export default function NoteList() {
       }
 
       const allnotes = await response.json();
-      setNotes(allnotes);
+      setNotes(allnotes.filter(note=>note.title.toLowerCase().includes(query)));
     }
 
     getNotes();
 
     return; 
-  }, [notes.length]);
+  }, [notes.length,query]);
 
   // This method will delete a record
   async function deleteNote(id) {
@@ -56,12 +57,15 @@ export default function NoteList() {
   }
   
   const filterNotes=()=>{
-    setNotes(notes.filter(note=>note.title.toLowerCase().includes(searchBox.current.value.toLowerCase())))
+    setQuery(searchBox.current.value.toLowerCase())
   }
 
   // This method will map out the notes on the table
   function noteList() {
-    return notes.map((note) => {
+    if (notes.length<0) {
+      return <h3>You available notes</h3>
+    }
+    return  notes.map((note) => {
       return (
         <Note
           note={note}
@@ -75,7 +79,13 @@ export default function NoteList() {
   // This following section will display the table with the records of individuals.
   return (
     <div>
-      <h3>All todos</h3>
+      <div className="row container-fluid mb-4 w-90">
+      <h3>My notes</h3>
+      <NavLink className="nav-link" to="/create">
+                New Note
+      </NavLink>
+      </div>
+      
       <div>
       <input ref={searchBox} className={'search w-100'} onChange={filterNotes} placeholder="Search Todo"></input> 
       </div>

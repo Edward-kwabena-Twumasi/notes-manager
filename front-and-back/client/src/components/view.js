@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+
 
 export default function View() {
   const [note, setNote] = useState({
@@ -49,7 +51,9 @@ export default function View() {
         <h5 className="ml-4"> Last update on : {note.updated} </h5>
 
       </div>
-  
+      <div className="row m-3"></div>
+      <Link className="btn btn-link" to={`/edit/${note._id}`}>Edit</Link> 
+      
     </div>
   );
 }

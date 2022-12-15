@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export default function Create() {
@@ -6,7 +6,29 @@ export default function Create() {
     title: "",
     content: ""
   });
+  const [noteTitles, setNoteTitles] = useState([]);
+
   const navigate = useNavigate();
+   // Get all notes and extract their titles to prevent note title duplicates
+   useEffect(() => {
+    async function getNotes() {
+      const response = await fetch(`http://localhost:5000/notes/`);
+
+      if (!response.ok) {
+        const message = `An error occured: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const allnotes = await response.json();
+      setNoteTitles(allnotes.map(note=>note.title.toLowerCase()));
+      console.log(noteTitles)
+    }
+
+    getNotes();
+
+    return; 
+  }, [noteTitles]);
 
   // These methods will update the state properties.
   function updateForm(value) {
@@ -21,6 +43,10 @@ export default function Create() {
 
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newNote = { ...form };
+    if (noteTitles.includes(form.title.toLocaleLowerCase())) {
+      window.alert(`There is already a note with the title "${form.title}"`)
+      return
+    }
 
     await fetch("http://localhost:5000/note/add", {
       method: "POST",
@@ -65,12 +91,15 @@ export default function Create() {
             onChange={(e) => updateForm({ content: e.target.value })}
           />
         </div>
-        <div className="form-group">
+        <div className="row form-group">
           <input
             type="submit"
             value="Add note"
             className="btn btn-primary"
           />
+          <button className="btn ml-3" onClick={(e)=>{
+            e.preventDefault();
+            navigate(-1)}}>Cancel</button>
         </div>
       </form>
     </div>

@@ -1,4 +1,5 @@
 # Simple react notes taking app
+Taking notes has now become easier. Hihi
 # Tech stack
 React,
 Node,
