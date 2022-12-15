@@ -1,8 +1,17 @@
-# mern-stack-example
-Mern Stack code for the [Mern Tutorial](https://www.mongodb.com/languages/mern-stack-tutorial)
+# Simple react notes taking app
+# Tech stack
+React,
+Node,
+Express,
+Mongodb,
 
-[![CI](https://github.com/mongodb-developer/mern-stack-example/actions/workflows/main.yaml/badge.svg)](https://github.com/mongodb-developer/mern-stack-example/actions/workflows/main.yaml)
-
+## User stories
+Users can create a new note with a title and a body
+see a list of all notes created on the application
+Update notes
+During updates a note, changes to the note should save as the user types
+See when notes were created and last updated
+Delete notes.
 ## How To Run
 Create an Atlas URI connection parameter in `mern/server/config.env` with your Atlas URI:
 ```
@@ -12,18 +21,15 @@ PORT=5000
 
 Start server:
 ```
-cd mern/server
+cd front-and-back/server
 npm install
 npm start
 ```
 
 Start Web server
 ```
-cd mern/client
+cd front-and-back/client
 npm install
 npm start
 ```
 
-## Disclaimer
-
-Use at your own risk; not a supported MongoDB product
