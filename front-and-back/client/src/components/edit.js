@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
+import "../components.css"
+
 
 export default function Edit() {
   const [form, setForm] = useState({
@@ -104,7 +106,7 @@ export default function Edit() {
           <label htmlFor="title">Ttle: </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control form"
             id="title"
             value={form.title}
             onChange={(e) => onFieldChange({ title: e.target.value })  }
@@ -125,7 +127,7 @@ export default function Edit() {
             onKeyUp={(e)=>onDoneTyping({ content: e.target.value })}/>
         </div>
         <br />
-        <div className="form-group row">
+        <div className="form-group actions">
           <input
             type="submit"
             value="Update note"
@@ -134,7 +136,7 @@ export default function Edit() {
           <button className="btn ml-3" onClick={(e)=>{
             e.preventDefault();
             navigate(-1)}}>Cancel</button>
-        </div>
+         </div>
       </form>
       <h5 className="m-2 text-danger">{status}</h5>
     </div>

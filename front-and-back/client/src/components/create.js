@@ -67,7 +67,7 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <h3>Create New Note</h3>
+      <h5>Create New Note</h5>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -91,7 +91,7 @@ export default function Create() {
             onChange={(e) => updateForm({ content: e.target.value })}
           />
         </div>
-        <div className="row form-group">
+        <div className="row form-group actions">
           <input
             type="submit"
             value="Add note"

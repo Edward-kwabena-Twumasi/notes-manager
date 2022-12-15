@@ -1,0 +1,62 @@
+
+.note-card{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+}
+.note-title{
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    margin: 6px;
+    padding-bottom: 8px;
+    font-size: 20px;
+}
+.note-body{
+
+    font-weight: lighter;
+    text-align: start;
+    font-size: 16px;
+}
+.actions{
+    display: flex;
+    justify-content: end;
+
+}
+.timestamps{
+    display: flex;
+    padding: 4px;
+    margin: 1px;
+    gap: 4px;
+}
+.timestamps h5{
+    font-size: 13px;
+    color: green;
+}
+.actions *{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    
+}
+.actions *:hover{
+    text-decoration: none;
+    
+    
+}
+.page-header{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 8px;
+}
+.notes-page{
+    padding: 3px;
+    height: auto;
+    transition: 2s ease-in-out;
+}
+.form{
+    margin: 5px;
+}
