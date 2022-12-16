@@ -60,3 +60,13 @@
 .form{
     margin: 5px;
 }
+.pge404{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.pge404 p{
+    text-align: center;
+    align-self: center;
+    font-weight: bolder;
+}

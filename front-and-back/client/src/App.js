@@ -9,6 +9,7 @@ import NoteList from "./components/noteList";
 import Edit from "./components/edit";
 import View from "./components/view";
 import Create from "./components/create";
+import PageNotFound from "./components/pagenotfound";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/view/:id" element={<View />} />
         <Route path="/create" element={<Create />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       </div>
     </div>
