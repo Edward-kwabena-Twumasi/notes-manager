@@ -33,7 +33,7 @@ export default function NoteList() {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getNotes() {
-      const response = await fetch(`http://localhost:5000/notes/`);
+      const response = await fetch(`https://notes-backend-gf28.onrender.com/notes/`);
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
@@ -52,7 +52,7 @@ export default function NoteList() {
 
   // This method will delete a record
   async function deleteNote(id) {
-    await fetch(`http://localhost:5000/delete/${id}`, {
+    await fetch(`https://notes-backend-gf28.onrender.com/delete/${id}`, {
       method: "DELETE"
     });
 

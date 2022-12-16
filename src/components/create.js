@@ -12,7 +12,7 @@ export default function Create() {
    // Get all notes and extract their titles to prevent note title duplicates
    useEffect(() => {
     async function getNotes() {
-      const response = await fetch(`http://localhost:5000/notes/`);
+      const response = await fetch(`https://notes-backend-gf28.onrender.com/notes/`);
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
@@ -52,7 +52,7 @@ export default function Create() {
       return
     }
 
-    await fetch("http://localhost:5000/note/add", {
+    await fetch("https://notes-backend-gf28.onrender.com/note/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
