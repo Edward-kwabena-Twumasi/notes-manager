@@ -1,4 +1,4 @@
-# Simple react notes taking app
+# More than a note taking app. Being built for developers
 Taking notes has now become easier. Hihi
 # Tech stack
 React,
